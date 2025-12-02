@@ -41,10 +41,7 @@ const EditHotel = () => {
         mutate(hotelFormData)
     }       
     
-    if(!hotel)
-    {
-        return <div>Loading...</div>
-    }
+
     
     return(
         <>
