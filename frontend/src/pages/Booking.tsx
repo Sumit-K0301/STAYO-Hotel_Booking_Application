@@ -30,7 +30,7 @@ const Booking = () => {
     },[search.checkIn, search.checkout])
 
     const {data : hotel} = useQuery({
-        queryKey: ["fetchHotelById"],
+        queryKey: ["fetchHotelById", hotelId],
         queryFn : () => apiClient.fetchHotelById(hotelId as string),
         enabled : !!hotelId
     })

@@ -8,7 +8,7 @@ const EditHotel = () => {
     const {hotelId} = useParams()
     const {data : hotelData} = useQuery({
         enabled : !!hotelId,
-        queryKey : ["fetchMyHotelsById"],
+        queryKey : ["fetchMyHotelsById", hotelId],
         queryFn : () => apiClient.fetchMyHotelsById(hotelId || ""),
         
     })
