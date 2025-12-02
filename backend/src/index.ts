@@ -39,6 +39,6 @@ app.use("/api/hotels", searchHotelRoutes)
 app.use("/api/my-bookings", bookingRoutes)
 
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT || 5000 , () => {
     console.log(`Application is listening at port ${process.env.PORT}`)
 })
