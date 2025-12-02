@@ -8,7 +8,7 @@ const Detail = () => {
     const {hotelId} = useParams()
 
     const {data : hotel} = useQuery({
-        queryKey : ["fetchHoteById"],
+        queryKey : ["fetchHoteById", hotelId],
         queryFn : () => apiClient.fetchHotelById(hotelId as string),
         enabled : !!hotelId
     })
