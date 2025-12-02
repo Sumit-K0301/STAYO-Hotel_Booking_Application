@@ -15,10 +15,7 @@ const EditHotel = () => {
 
     const hotel = hotelData?.[0]
     
-    if(!hotel)
-    {
-        return <div>Loading...</div>
-    }
+    
 
     const {showToast} = useAppContext()
 
@@ -38,11 +35,17 @@ const EditHotel = () => {
             }
            })
 
+
+    
     const handleSave = (hotelFormData : FormData) => {
         mutate(hotelFormData)
     }       
     
-
+    if(!hotel)
+    {
+        return <div>Loading...</div>
+    }
+    
     return(
         <>
             <ManageHotelForm hotel={hotel} onSave={handleSave} isPending={isPending} />
