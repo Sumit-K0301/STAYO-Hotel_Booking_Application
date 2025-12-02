@@ -6,12 +6,19 @@ import { useAppContext } from "../contexts/AppContext"
 
 const EditHotel = () => {
     const {hotelId} = useParams()
-    const {data : hotel} = useQuery({
+    const {data : hotelData} = useQuery({
         enabled : !!hotelId,
         queryKey : ["fetchMyHotelsById"],
         queryFn : () => apiClient.fetchMyHotelsById(hotelId || ""),
         
     })
+
+    const hotel = hotelData?.[0]
+    
+    if(!hotel)
+    {
+        return <div>Loading...</div>
+    }
 
     const {showToast} = useAppContext()
 
@@ -38,9 +45,7 @@ const EditHotel = () => {
 
     return(
         <>
-        <ManageHotelForm  hotel = {hotel} onSave={handleSave} isPending={isPending}/>
-
-        
+            <ManageHotelForm hotel={hotel} onSave={handleSave} isPending={isPending} />
         </>
 
     )
