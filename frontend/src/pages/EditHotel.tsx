@@ -13,9 +13,7 @@ const EditHotel = () => {
         
     })
 
-    const hotel = hotelData?.[0]
-    
-    
+    const hotel = hotelData 
 
     const {showToast} = useAppContext()
 
